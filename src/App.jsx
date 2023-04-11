@@ -1,10 +1,15 @@
 import { useState, Suspense } from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
+import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+
 import Header from './components/Header'
 import PostsList from './components/PostsList'
 
 import SkeletonPost from './components/skeletons/SkeletonPost'
 import ErrorFallback from './ErrorFallback'
+
+const queryClient = new QueryClient()
 
 function App() {
   const [currentUserId, setCurrentUserId] = useState(0)
@@ -29,10 +34,11 @@ function App() {
     )
 
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <Header currentUserId={currentUserId} setCurrentUserId={setCurrentUserId} />
       {content}
-    </>
+      <ReactQueryDevtools />
+    </QueryClientProvider>
   )
 }
 

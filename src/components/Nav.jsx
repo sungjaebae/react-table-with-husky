@@ -1,8 +1,8 @@
-import useSWR from 'swr'
+import { useQuery } from '@tanstack/react-query'
 import { getUsers, usersUrlEndpoint as usersCacheKey } from '../api/usersApi'
 
 const Nav = ({ currentUserId, setCurrentUserId }) => {
-  const { isLoading, error, data: employees } = useSWR(usersCacheKey, getUsers)
+  const { isLoading, error, data: employees } = useQuery([usersCacheKey], getUsers)
 
   let options
   if (isLoading) {

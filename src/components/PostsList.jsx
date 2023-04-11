@@ -1,4 +1,4 @@
-import useSWR from 'swr'
+import { useQuery } from '@tanstack/react-query'
 
 import { getPostsByUserId, postsUrlEndpoint as postsCacheKey } from '../api/postsApi'
 
@@ -7,15 +7,15 @@ import { getUserById, usersUrlEndpoint as usersCacheKey } from '../api/usersApi'
 import Post from './Post'
 
 function PostsList({ currentUserId }) {
-  const { data: posts } = useSWR(
+  const { data: posts } = useQuery(
     [postsCacheKey, currentUserId],
-    ([url, userId]) => getPostsByUserId(url, userId),
+    getPostsByUserId(postsCacheKey, currentUserId),
     { suspense: true },
   )
 
-  const { data: user } = useSWR(
+  const { data: user } = useQuery(
     posts?.length ? [usersCacheKey, currentUserId] : null,
-    ([url, userId]) => getUserById(url, userId),
+    getUserById(usersCacheKey, currentUserId),
     { suspense: true },
   )
 
