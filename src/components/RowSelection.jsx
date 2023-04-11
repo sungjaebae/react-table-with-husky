@@ -1,41 +1,34 @@
+import React, { useMemo } from 'react'
 import { useTable, useRowSelect } from 'react-table'
-import { useMemo } from 'react'
-import { GROUPED_COLUMNS } from './columns'
 import MOCK_DATA from './MOCK_DATA.json'
+import { COLUMNS } from './columns'
 import './table.css'
 import Checkbox from './Checkbox'
+import HeaderComponent from './HeaderComponent'
+import CellComponent from './CellComponent'
 
 export default function RowSelection() {
-  const columns = useMemo(() => GROUPED_COLUMNS, [])
+  const columns = useMemo(() => COLUMNS, [])
   const data = useMemo(() => MOCK_DATA, [])
 
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    footerGroups,
-    rows,
-    prepareRow,
-    selectedFlatRows,
-  } = useTable(
-    {
-      columns,
-      data,
-    },
-    useRowSelect,
-    (hooks) => {
-      hooks.visibleColumns.push((columns) => [
-        {
-          id: 'selection',
-          Header: ({ getToggleAllRowsSelectedProps }) => (
-            <Checkbox {...getToggleAllRowsSelectedProps()} />
-          ),
-          Cell: ({ row }) => <Checkbox {...row.getToggleRowSelectedProps()} />,
-        },
-        ...columns,
-      ])
-    },
-  )
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, selectedFlatRows } =
+    useTable(
+      {
+        columns,
+        data,
+      },
+      useRowSelect,
+      (hooks) => {
+        hooks.visibleColumns.push((icolumns) => [
+          {
+            id: 'selection',
+            Header: HeaderComponent,
+            Cell: CellComponent,
+          },
+          ...icolumns,
+        ])
+      },
+    )
 
   const firstPageRows = rows.slice(0, 10)
 
@@ -63,15 +56,6 @@ export default function RowSelection() {
             )
           })}
         </tbody>
-        <tfoot>
-          {footerGroups.map((footerGroup) => (
-            <tr {...footerGroup.getFooterGroupProps()}>
-              {footerGroup.headers.map((column) => (
-                <td {...column.getFooterProps()}>{column.render('Footer')}</td>
-              ))}
-            </tr>
-          ))}
-        </tfoot>
       </table>
       <pre>
         <code>

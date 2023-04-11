@@ -4,6 +4,16 @@ import { COLUMNS } from './columns'
 import MOCK_DATA from './MOCK_DATA.json'
 import './table.css'
 
+const makeIcon = (isSorted, isSortedDesc) => {
+  if (!isSorted) {
+    return ''
+  }
+  if (isSortedDesc) {
+    return '🔽'
+  }
+  return '🔼'
+}
+
 export default function SortingTable() {
   const columns = useMemo(() => COLUMNS, [])
   const data = useMemo(() => MOCK_DATA, [])
@@ -20,7 +30,7 @@ export default function SortingTable() {
             {headerGroup.headers.map((column) => (
               <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                 {column.render('Header')}
-                <span>{column.isSorted ? (column.isSortedDesc ? '🔽' : '🔼') : ''}</span>
+                <span>{makeIcon(column.isSorted, column.isSortedDesc)}</span>
               </th>
             ))}
           </tr>
