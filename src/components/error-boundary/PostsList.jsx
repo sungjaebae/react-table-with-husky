@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
 
-import { getPostsByUserId, postsUrlEndpoint as postsCacheKey } from '../api/postsApi'
+import { getPostsByUserId, postsUrlEndpoint as postsCacheKey } from '../../api/postsApi'
 
-import { getUserById, usersUrlEndpoint as usersCacheKey } from '../api/usersApi'
+import { getUserById, usersUrlEndpoint as usersCacheKey } from '../../api/usersApi'
 
 import Post from './Post'
 

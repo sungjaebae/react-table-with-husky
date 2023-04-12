@@ -3,11 +3,11 @@ import { ErrorBoundary } from 'react-error-boundary'
 import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
-import Header from './components/Header'
-import PostsList from './components/PostsList'
+import Header from './components/error-boundary/Header'
+import PostsList from './components/error-boundary/PostsList'
 
 import SkeletonPost from './components/skeletons/SkeletonPost'
-import ErrorFallback from './ErrorFallback'
+import ErrorFallback from './components/error-boundary/ErrorFallback'
 
 const queryClient = new QueryClient()
 
