@@ -9,11 +9,17 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', 'prettier'],
+  plugins: ['react', 'import', 'prettier'],
   rules: {
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
-    'import/no-extraneous-dependencies': ['error', { includeInternal: true, includeTypes: true }],
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        includeInternal: true,
+        includeTypes: true,
+      },
+    ],
     'react/jsx-props-no-spreading': 'off',
     'react/prop-types': 'off',
     'no-unused-vars': 'off',
