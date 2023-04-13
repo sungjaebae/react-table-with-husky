@@ -1,7 +1,5 @@
 import { useState, Suspense } from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
-import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 import Header from './Header'
 import PostsList from './PostsList'
