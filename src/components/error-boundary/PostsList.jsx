@@ -1,23 +1,26 @@
 import { useQuery } from '@tanstack/react-query'
 
-import { getPostsByUserId, postsUrlEndpoint as postsCacheKey } from '../../api/postsApi'
+import getPostsByUserId from './api/postsApi'
 
-import { getUserById, usersUrlEndpoint as usersCacheKey } from '../../api/usersApi'
+import { getUserById, getUsers } from './api/usersApi'
 
 import Post from './Post'
+import queryKeys from './factory/queryKeyFactory'
 
 function PostsList({ currentUserId }) {
-  const { data: posts } = useQuery(
-    [postsCacheKey, currentUserId],
-    getPostsByUserId(postsCacheKey, currentUserId),
-    { suspense: true },
-  )
+  const { data: user } = useQuery({
+    queryKey: queryKeys.user(currentUserId),
+    queryFn: () => getUserById(currentUserId),
+    suspense: true,
+    useErrorBoundary: true,
+  })
 
-  const { data: user } = useQuery(
-    posts?.length ? [usersCacheKey, currentUserId] : null,
-    getUserById(usersCacheKey, currentUserId),
-    { suspense: true },
-  )
+  const { data: posts } = useQuery({
+    querykey: queryKeys.posts(currentUserId),
+    queryFn: () => getPostsByUserId(currentUserId),
+    suspense: true,
+    useErrorBoundary: true,
+  })
 
   const content = (
     <main>

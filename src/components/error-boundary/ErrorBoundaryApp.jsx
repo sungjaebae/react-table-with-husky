@@ -9,9 +9,7 @@ import PostsList from './PostsList'
 import SkeletonPost from './skeletons/SkeletonPost'
 import ErrorFallback from './ErrorFallback'
 
-const queryClient = new QueryClient()
-
-function App() {
+function ErrorBoundaryApp() {
   const [currentUserId, setCurrentUserId] = useState(0)
 
   const content =
@@ -34,12 +32,11 @@ function App() {
     )
 
   return (
-    <QueryClientProvider client={queryClient}>
+    <>
       <Header currentUserId={currentUserId} setCurrentUserId={setCurrentUserId} />
       {content}
-      <ReactQueryDevtools />
-    </QueryClientProvider>
+    </>
   )
 }
 
-export default App
+export default ErrorBoundaryApp

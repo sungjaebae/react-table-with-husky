@@ -1,8 +1,18 @@
 import { useQuery } from '@tanstack/react-query'
-import { getUsers, usersUrlEndpoint as usersCacheKey } from '../../api/usersApi'
+import { getUsers } from './api/usersApi'
+import queryKeys from './factory/queryKeyFactory'
 
 const Nav = ({ currentUserId, setCurrentUserId }) => {
-  const { isLoading, error, data: employees } = useQuery([usersCacheKey], getUsers)
+  const {
+    isLoading,
+    error,
+    data: employees,
+  } = useQuery({
+    queryKey: queryKeys.users(),
+    queryFn: getUsers,
+    suspense: true,
+    useErrorBoundary: true,
+  })
 
   let options
   if (isLoading) {

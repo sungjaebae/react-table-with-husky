@@ -599,60 +599,6 @@
       "id": 100,
       "title": "at nam consequatur ea labore ea harum",
       "body": "cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut"
-    },
-    {
-      "firstName": "Sungjae",
-      "lastName": "Bae",
-      "email": "hsm0156@gmail.com",
-      "age": 26,
-      "password": "12345",
-      "confirmPassword": "12345",
-      "id": 101
-    },
-    {
-      "firstName": "Sungjae",
-      "lastName": "Bae",
-      "email": "hsm0156@gmail.com",
-      "age": 26,
-      "password": "12345",
-      "confirmPassword": "12345",
-      "id": 102
-    },
-    {
-      "firstName": "Sungjae",
-      "lastName": "Bae",
-      "email": "hsm0156@gmail.com",
-      "age": 26,
-      "password": "12345",
-      "confirmPassword": "12345",
-      "id": 103
-    },
-    {
-      "firstName": "Sungjae",
-      "lastName": "Bae",
-      "email": "hsm0156@gmail.com",
-      "age": 26,
-      "password": "12345",
-      "confirmPassword": "12345",
-      "id": 104
-    },
-    {
-      "firstName": "Sungjae",
-      "lastName": "Bae",
-      "email": "hsm0156@gmail.com",
-      "age": 23,
-      "password": "asdfa",
-      "confirmPassword": "asdfa",
-      "id": 105
-    },
-    {
-      "firstName": "Sungjae",
-      "lastName": "Bae",
-      "email": "hsm0156@gmail.com",
-      "age": 23,
-      "password": "asdfa",
-      "confirmPassword": "asdfa",
-      "id": 106
     }
   ],
   "users": [
