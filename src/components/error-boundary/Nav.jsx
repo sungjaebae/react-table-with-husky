@@ -12,6 +12,7 @@ const Nav = ({ currentUserId, setCurrentUserId }) => {
     queryFn: getUsers,
     suspense: true,
     useErrorBoundary: true,
+    retry: false,
   })
 
   let options

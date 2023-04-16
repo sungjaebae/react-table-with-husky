@@ -5,6 +5,8 @@ import EditPost from './components/react-query/pages/EditPost'
 import SignUpPage from './components/react-hook-form/SignUpPage'
 import ImperativeHandlePage from './components/ImperativeHandle/ImperativeHandlePage'
 import ErrorBoundaryApp from './components/error-boundary/ErrorBoundaryApp'
+import WhyDidYouRender from './components/why-did-you-render-hook/WhyDidYouRender'
+import MaterialReactTableApp from './components/material-react-table/MaterialReactTable'
 
 function App() {
   return (
@@ -17,9 +19,12 @@ function App() {
         <Route path="/register" element={<SignUpPage />} />
         <Route path="/imperative-handle" element={<ImperativeHandlePage />} />
         <Route path="/error-boundary" element={<ErrorBoundaryApp />} />
+        <Route path="/why-did-you-render" element={<WhyDidYouRender />} />
+        <Route path="/material-react-table" element={<MaterialReactTableApp />} />
       </Routes>
     </div>
   )
 }
+App.whyDidYouRender = true
 
 export default App

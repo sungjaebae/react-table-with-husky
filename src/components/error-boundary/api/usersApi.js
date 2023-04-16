@@ -10,6 +10,8 @@ export async function getUsers() {
 }
 
 export async function getUserById(userId) {
-  const response = await usersApi.get(`/users/${userId}`)
+  //  const response = await usersApi.get(`/users/${userId}`)
+  // 일부러 에러나게 바꿈
+  const response = await usersApi.get(`/users/asdf${userId}`)
   return response.data
 }

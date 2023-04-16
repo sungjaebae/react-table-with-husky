@@ -13,6 +13,7 @@ function PostsList({ currentUserId }) {
     queryFn: () => getUserById(currentUserId),
     suspense: true,
     useErrorBoundary: true,
+    retry: false,
   })
 
   const { data: posts } = useQuery({
@@ -20,6 +21,7 @@ function PostsList({ currentUserId }) {
     queryFn: () => getPostsByUserId(currentUserId),
     suspense: true,
     useErrorBoundary: true,
+    retry: false,
   })
 
   const content = (
