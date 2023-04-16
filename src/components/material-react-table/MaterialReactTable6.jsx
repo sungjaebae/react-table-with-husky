@@ -146,27 +146,35 @@ function MaterialReactTableApp() {
   return (
     <>
       <MaterialReactTable
+        displayColumnDefOptions={{
+          'mrt-row-actions': {
+            muiTableHeadCellProps: {
+              align: 'center',
+            },
+            size: 120,
+          },
+        }}
         columns={columns}
         data={tableData}
-        editingMode="row" // default
+        editingMode="modal" // default
         enableColumnOrdering
         enableEditing
         onEditingRowSave={handleSaveRowEdits}
         onEditingRowCancel={handleCancelRowEdits}
-        // renderRowActions={({ row, table }) => (
-        //   <Box sx={{ display: 'flex', gap: '1rem' }}>
-        //     <Tooltip arrow placement="left" title="Edit">
-        //       <IconButton onClick={() => table.setEditingRow(row)}>
-        //         <Edit />
-        //       </IconButton>
-        //     </Tooltip>
-        //     <Tooltip arrow placement="right" title="Delete">
-        //       <IconButton color="error" onClick={() => handleDeleteRow(row)}>
-        //         <Delete />
-        //       </IconButton>
-        //     </Tooltip>
-        //   </Box>
-        // )}
+        renderRowActions={({ row, table }) => (
+          <Box sx={{ display: 'flex', gap: '1rem' }}>
+            <Tooltip arrow placement="left" title="Edit">
+              <IconButton onClick={() => table.setEditingRow(row)}>
+                <Edit />
+              </IconButton>
+            </Tooltip>
+            <Tooltip arrow placement="right" title="Delete">
+              <IconButton color="error" onClick={() => handleDeleteRow(row)}>
+                <Delete />
+              </IconButton>
+            </Tooltip>
+          </Box>
+        )}
         renderTopToolbarCustomActions={() => (
           <Button color="secondary" onClick={() => setCreateModalOpen(true)} variant="contained">
             Create New Account
