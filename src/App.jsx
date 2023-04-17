@@ -7,6 +7,7 @@ import ImperativeHandlePage from './components/ImperativeHandle/ImperativeHandle
 import ErrorBoundaryApp from './components/error-boundary/ErrorBoundaryApp'
 import WhyDidYouRender from './components/why-did-you-render-hook/WhyDidYouRender'
 import MaterialReactTableApp from './components/material-react-table/MaterialReactTable'
+import RecursiveComponentApp from './components/recursive-component/App2'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/error-boundary" element={<ErrorBoundaryApp />} />
         <Route path="/why-did-you-render" element={<WhyDidYouRender />} />
         <Route path="/material-react-table" element={<MaterialReactTableApp />} />
+        <Route path="/recursive-component" element={<RecursiveComponentApp />} />
       </Routes>
     </div>
   )

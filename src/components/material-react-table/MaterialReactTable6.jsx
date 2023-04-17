@@ -18,7 +18,7 @@ import {
   Tooltip,
 } from '@mui/material'
 import { Delete, Edit } from '@mui/icons-material'
-import { data, states } from './makeData5'
+import { data, states } from './makeData6'
 
 function MaterialReactTableApp() {
   const [createModalOpen, setCreateModalOpen] = useState(false)

@@ -1,27 +1,28 @@
 import axios from 'axios'
 
+const baseUrl = 'http://127.0.0.1:8000/api/posts'
 export async function fetchPosts() {
-  const response = await axios('http://localhost:3000/posts')
+  const response = await axios(`${baseUrl}`)
   return response.data
 }
 
 export async function fetchPost(id) {
-  const response = await axios(`http://localhost:3000/posts/${id}`)
+  const response = await axios(`${baseUrl}/${id}`)
   return response.data
 }
 
 export async function createPost(newPost) {
-  const response = await axios.post(`http://localhost:3000/posts`, newPost)
+  const response = await axios.post(`${baseUrl}`, newPost)
   return response.data
 }
 
 export async function updatePost(updatedPost) {
-  const response = await axios.put(`http://localhost:3000/posts/${updatedPost.id}`, updatedPost)
+  const response = await axios.put(`${baseUrl}/${updatedPost.id}`, updatedPost)
   return response.data
 }
 
 export async function deletePost(id) {
-  const response = await axios.delete(`http://localhost:3000/posts/${id}`)
+  const response = await axios.delete(`${baseUrl}/${id}`)
   return response.data
 }
 
